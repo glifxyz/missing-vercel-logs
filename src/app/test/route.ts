@@ -2,7 +2,7 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  console.log("Start");
+  console.log("Start POST test");
 
   const encoder = new TextEncoder();
   const readable = new ReadableStream({
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     },
   });
 
-  console.log("Before return");
+  console.log("Before return POST test");
 
   return new Response(readable, {
     headers: { "Content-Type": "application/json; charset=utf-8" },
