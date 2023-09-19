@@ -8,5 +8,5 @@ export async function GET(request: Request) {
 
   console.log("Before return GET test2");
 
-  return Response.json({ foo: "bar" });
+  return Response.json({ foo: "bar test2" });
 }

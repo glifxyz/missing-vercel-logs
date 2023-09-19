@@ -7,12 +7,12 @@ export async function POST(request: Request) {
   const encoder = new TextEncoder();
   const readable = new ReadableStream({
     async start(controller) {
-      console.log("Before first enqueue");
-      controller.enqueue(encoder.encode("Foo\n"));
+      console.log("Before first enqueue test");
+      controller.enqueue(encoder.encode("Foo test\n"));
 
-      console.log("Before sleep");
+      console.log("Before sleep test");
       await new Promise((resolve) => setTimeout(resolve, 20000));
-      console.log("After sleep");
+      console.log("After sleep test");
 
       controller.close();
     },
