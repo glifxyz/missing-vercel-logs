@@ -31,19 +31,19 @@ Then make some requests to our three sleepy test endpoints, and watch your serve
 - `/test2`` specfically produces a "Error: Network connection lost." error on Vercel, which doesn't happen with the other two
 - all 3 tests behave consistently over dozens of test runs (as of 2023-09-19)
 
-POST /test -- 20s -- fails
+POST /test -- 20s -- works, but no `console.log` output (HTTP streaming, 20s long sleep)
 
 ```sh
 curl -s -X POST http://localhost:3000/test
 ```
 
-GET /test2 -- 22s -- fails
+GET /test2 -- 22s -- works, but no `console.log` output (RESTful reply, 22s long sleep)
 
 ```sh
 curl -s -X GET http://localhost:3000/test2
 ```
 
-GET /test3 -- 10s -- works
+GET /test3 -- 10s -- works and does produce `console.log` output (RESTful reply, 10s long sleep)
 
 ```sh
 curl -s -X GET http://localhost:3000/test3
