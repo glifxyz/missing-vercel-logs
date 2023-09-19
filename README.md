@@ -24,9 +24,14 @@ Then run the development server:
 npm run dev
 ```
 
-Then make some requests to our three sleepy test endpoints, and watch your server logs:
+Then make some requests to our three sleepy test endpoints, and watch your server logs.
 
-POST /test -- 20s -- fails?
+- all 3 of these tests result in a `200 OK` with the expected data. So the good news is they still technically work
+- but 2 out of 3 of the tests do not produce any `console.log` output at all. That's the bad news
+- `/test2`` specfically produces a "Error: Network connection lost." error on Vercel, which doesn't happen with the other two
+- all 3 tests behave consistently over dozens of test runs (as of 2023-09-19)
+
+POST /test -- 20s -- fails
 
 ```sh
 curl -s -X POST http://localhost:3000/test
